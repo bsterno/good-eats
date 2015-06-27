@@ -1,0 +1,25 @@
+<div class="row">
+  <%- if @review.errors.present? -%>
+    <div class="large-12 alert-box alert" data-alert>
+      <ul>
+        <%- @review.errors.full_messages.each do |error| -%>
+          <li><%= error %></li>
+        <%- end -%>
+      </ul>
+    </div>
+  <%- end -%>
+
+  <div class="large-12">
+    <h1>Submit your review of <%= @restaurant.name %></h1>
+
+    <%= form_for [@restaurant, @review] do |f| %>
+      <%= f.label "Rating (Between 1 - 5)" %>
+      <%= f.text_field :rating %>
+
+      <%= f.label "Review" %>
+      <%= f.text_field :body %>
+
+      <%= f.submit "Submit Review" %>
+    <%- end -%>
+  </div>
+</div>

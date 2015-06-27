@@ -1,0 +1,40 @@
+<div class="row">
+  <%- if @restaurant.errors.present? -%>
+    <div class="large-12 alert-box alert" data-alert>
+      <ul>
+        <%- @restaurant.errors.full_messages.each do |error| -%>
+          <li><%= error %></li>
+        <%- end -%>
+      </ul>
+    </div>
+  <%- end -%>
+
+  <div class="large-12">
+    <h1>Add a Restaurant to the Good-Eats Site</h1>
+
+    <%= form_for @restaurant do |f| %>
+      <%= f.label "Restaurant Name" %>
+      <%= f.text_field :name %>
+      <br>
+      <%= f.label "Address" %>
+      <%= f.text_field :address %>
+      <br>
+      <%= f.label "City" %>
+      <%= f.text_field :city %>
+      <br>
+      <%= f.label "State" %>
+      <%= f.text_field :state %>
+      <br>
+      <%= f.label "Zip Code" %>
+      <%= f.text_field :zip_code %>
+      <br>
+      <%= f.label "Description" %>
+      <%= f.text_field :description %>
+      <br>
+      <%= f.label "Category" %>
+      <%= f.text_field :category %>
+      <br>
+      <%= f.submit "Add Restaurant" %>
+    <%- end -%>
+  </div>
+</div>
